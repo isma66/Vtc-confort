@@ -17,7 +17,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            background: #000000;
             color: #fff;
             height: 100vh;
             display: flex;
@@ -27,41 +27,33 @@
             width: 100%;
         }
 
-        /* Barre d'onglets stylisée */
         .tab-bar {
             display: flex;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 20px;
-            gap: 20px;
+            background: #000000;
+            border-bottom: 1px solid #282828;
+            padding: 8px 16px;
+            gap: 16px;
             flex-shrink: 0;
         }
 
         .tab-btn {
             flex: 1;
-            padding: 14px;
+            padding: 12px;
             background: transparent;
             border: none;
-            color: #888;
-            font-size: 17px;
+            color: #b3b3b3;
+            font-size: 16px;
             font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.3s ease;
+            border-radius: 12px;
+            transition: all 0.2s;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
         .tab-btn.active {
-            background: linear-gradient(135deg, #1DB954 0%, #1aa34a 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+            background: #282828;
+            color: #1DB954;
         }
 
-        /* Contenu principal */
         .content {
             flex: 1;
             overflow: hidden;
@@ -71,198 +63,37 @@
             display: none;
             height: 100%;
             width: 100%;
-            overflow-y: auto;
         }
 
         .tab-pane.active-pane {
             display: block;
         }
 
-        /* ========== STYLE SPOTIFY ========== */
-        .spotify-container {
+        /* Spotify iframe - reste DANS l'application */
+        .spotify-iframe {
+            width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
-        }
-
-        .spotify-header {
-            background: linear-gradient(135deg, #1DB95420 0%, #1aa34a10 100%);
-            padding: 24px 20px;
-            text-align: center;
-            border-bottom: 1px solid rgba(29, 185, 84, 0.2);
-        }
-
-        .spotify-header h2 {
-            font-size: 28px;
-            background: linear-gradient(135deg, #1DB954, #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-
-        .spotify-header p {
-            color: #aaa;
-            font-size: 14px;
-        }
-
-        .search-section {
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .search-box {
-            display: flex;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 50px;
-            padding: 4px;
-            backdrop-filter: blur(10px);
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 16px 20px;
-            border-radius: 50px;
             border: none;
-            background: transparent;
-            color: white;
-            font-size: 16px;
-            outline: none;
         }
 
-        .search-input::placeholder {
-            color: #666;
-        }
-
-        .search-btn {
-            padding: 12px 28px;
-            background: linear-gradient(135deg, #1DB954, #1aa34a);
-            border: none;
-            border-radius: 50px;
-            color: white;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .search-btn:active {
-            transform: scale(0.96);
-        }
-
-        .results-container {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .result-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-            border-radius: 20px;
-            padding: 24px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .result-icon {
-            font-size: 64px;
-            margin-bottom: 16px;
-        }
-
-        .result-query {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .spotify-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, #1DB954, #1aa34a);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .spotify-link:active {
-            transform: scale(0.96);
-        }
-
-        .tips {
-            margin-top: 20px;
-            padding: 16px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-        }
-
-        .tips p {
-            color: #ffd966;
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .tips ul {
-            color: #aaa;
-            font-size: 12px;
-            list-style: none;
-        }
-
-        .tips li {
-            margin: 6px 0;
-        }
-
-        /* ========== STYLE MENU ========== */
+        /* Menu */
         .menu-container {
-            padding: 20px;
-            background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
-            min-height: 100%;
-        }
-
-        .menu-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #ffd96620, #ffb34710);
-            border-radius: 30px;
-        }
-
-        .menu-header h1 {
-            font-size: 32px;
-            background: linear-gradient(135deg, #ffd966, #ffb347);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .menu-header p {
-            color: #aaa;
-            margin-top: 8px;
+            padding: 20px 16px;
+            overflow-y: auto;
+            height: 100%;
+            background: #121212;
         }
 
         .menu-section {
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .menu-section h2 {
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .menu-section h2 span {
-            background: linear-gradient(135deg, #ffd966, #ffb347);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffd966;
+            border-left: 4px solid #ffd966;
+            padding-left: 12px;
         }
 
         .menu-grid {
@@ -272,23 +103,16 @@
         }
 
         .menu-item {
-            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-            border-radius: 20px;
-            padding: 18px;
+            background: #1e1e1e;
+            border-radius: 16px;
+            padding: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.2s;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .menu-item:active {
-            transform: scale(0.98);
-            background: rgba(255,255,255,0.1);
         }
 
         .menu-item-info h3 {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             margin-bottom: 4px;
         }
@@ -300,28 +124,24 @@
 
         .menu-item-price {
             font-weight: bold;
-            font-size: 20px;
-            background: linear-gradient(135deg, #ffd966, #ffb347);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 18px;
+            color: #ffd966;
         }
 
         .qr-container {
             background: white;
-            padding: 28px;
-            border-radius: 30px;
+            padding: 24px;
+            border-radius: 24px;
             text-align: center;
-            margin-top: 30px;
+            margin-top: 24px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .qr-container p {
             color: #000;
             margin-bottom: 16px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .qr-code {
@@ -335,9 +155,9 @@
             text-align: center;
             font-size: 11px;
             color: #666;
-            padding: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 16px;
+            padding: 16px;
+            border-top: 1px solid #2c2c2c;
+            margin-top: 8px;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs2-fix/dist/qrcode.min.js"></script>
@@ -345,46 +165,25 @@
 <body>
     <div class="tab-bar">
         <button class="tab-btn active" data-tab="music">🎵 SPOTIFY</button>
-        <button class="tab-btn" data-tab="menu">🍽️ PAUSE GOURMANDE</button>
+        <button class="tab-btn" data-tab="menu">🍹 MENU & CONFORT</button>
     </div>
 
     <div class="content">
-        <!-- ========== SPOTIFY - RECHERCHE INTÉGRÉE ========== -->
+        <!-- SPOTIFY - IFRAME INTÉGRÉ (NE QUITTE JAMAIS L'APP) -->
         <div id="music-pane" class="tab-pane active-pane">
-            <div class="spotify-container">
-                <div class="spotify-header">
-                    <h2>🎧 Votre musique</h2>
-                    <p>Cherchez ce que vous voulez écouter</p>
-                </div>
-                
-                <div class="search-section">
-                    <div class="search-box">
-                        <input type="text" id="searchInput" class="search-input" placeholder="Artiste, chanson, playlist... (ex: Daft Punk, Ninho, Relax)">
-                        <button class="search-btn" onclick="searchSpotify()">Chercher →</button>
-                    </div>
-                </div>
-                
-                <div id="resultsContainer" class="results-container">
-                    <div class="result-card">
-                        <div class="result-icon">🎵</div>
-                        <div class="result-query">Prêt à voyager ?</div>
-                        <div style="color: #888; margin-top: 8px;">Tapez un artiste ou une chanson</div>
-                    </div>
-                </div>
-            </div>
+            <iframe class="spotify-iframe" 
+                    src="https://open.spotify.com/"
+                    allow="encrypted-media; clipboard-write; autoplay; fullscreen"
+                    allowfullscreen>
+            </iframe>
         </div>
 
-        <!-- ========== MENU - VOTRE MENU ORIGINAL ========== -->
+        <!-- MENU -->
         <div id="menu-pane" class="tab-pane">
             <div class="menu-container">
-                <div class="menu-header">
-                    <h1>🍽️ PAUSE GOURMANDE</h1>
-                    <p>On a tout ce qu'il vous faut... sans bouger de la voiture</p>
-                </div>
-
                 <!-- BOISSONS -->
                 <div class="menu-section">
-                    <h2>💧 <span>BOISSONS</span></h2>
+                    <h2>💧 BOISSONS</h2>
                     <div class="menu-grid">
                         <div class="menu-item">
                             <div class="menu-item-info">
@@ -400,87 +199,38 @@
                             </div>
                             <div class="menu-item-price">3€</div>
                         </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Coca-Cola</h3>
-                                <p>Fraîcheur intense • 33cl</p>
-                            </div>
-                            <div class="menu-item-price">3€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Jus d'orange</h3>
-                                <p>Pur jus • 25cl</p>
-                            </div>
-                            <div class="menu-item-price">3€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Ice Tea</h3>
-                                <p>Pêche / Citron • 33cl</p>
-                            </div>
-                            <div class="menu-item-price">3€</div>
-                        </div>
                     </div>
                 </div>
 
                 <!-- CONFORT & ENERGIE -->
                 <div class="menu-section">
-                    <h2>⚡ <span>CONFORT & ENERGIE</span></h2>
+                    <h2>⚡ CONFORT & ENERGIE</h2>
                     <div class="menu-grid">
                         <div class="menu-item">
                             <div class="menu-item-info">
                                 <h3>Besoin d'énergie</h3>
-                                <p>Barre céréales • Fruits secs</p>
+                                <p>Barre céréales</p>
                             </div>
                             <div class="menu-item-price">2€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Café</h3>
-                                <p>Expresso • Allongé</p>
-                            </div>
-                            <div class="menu-item-price">2,50€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Thé / Infusion</h3>
-                                <p>Menthe, verveine, earl grey</p>
-                            </div>
-                            <div class="menu-item-price">2,50€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Pain au chocolat</h3>
-                                <p>Viennoiserie fraîche</p>
-                            </div>
-                            <div class="menu-item-price">2,50€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Madeleine</h3>
-                                <p>Citron ou vanille</p>
-                            </div>
-                            <div class="menu-item-price">1,50€</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PAIEMENT -->
+                <!-- QR CODE -->
                 <div class="qr-container">
                     <p>💳 Paiement rapide & sans contact</p>
                     <div class="qr-code" id="qr-code"></div>
-                    <p style="font-size: 12px; margin-top: 12px; color: #555;">Scannez pour régler vos achats</p>
+                    <p style="font-size: 12px; margin-top: 12px; color: #333;">Scannez pour régler</p>
                 </div>
                 <div class="footer-note">
-                    🚗 À votre service | CB, Apple Pay, Google Pay
+                    🚗 À votre service
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Gestion des onglets
+        // Onglets
         const tabs = document.querySelectorAll('.tab-btn');
         const musicPane = document.getElementById('music-pane');
         const menuPane = document.getElementById('menu-pane');
@@ -501,64 +251,9 @@
             });
         });
 
-        // Recherche Spotify
-        function searchSpotify() {
-            const query = document.getElementById('searchInput').value.trim();
-            const resultsContainer = document.getElementById('resultsContainer');
-            
-            if (query === '') {
-                resultsContainer.innerHTML = `
-                    <div class="result-card">
-                        <div class="result-icon">⚠️</div>
-                        <div class="result-query">Tapez un artiste ou une chanson</div>
-                    </div>`;
-                return;
-            }
-            
-            resultsContainer.innerHTML = `
-                <div class="result-card">
-                    <div class="result-icon">🔍</div>
-                    <div class="result-query">Recherche de "${escapeHtml(query)}"...</div>
-                </div>`;
-            
-            setTimeout(() => {
-                const searchUrl = `https://open.spotify.com/search/${encodeURIComponent(query)}`;
-                
-                resultsContainer.innerHTML = `
-                    <div class="result-card">
-                        <div class="result-icon">🎵</div>
-                        <div class="result-query">"${escapeHtml(query)}"</div>
-                        <a href="${searchUrl}" target="_blank" class="spotify-link">🎧 Écouter sur Spotify</a>
-                        <div class="tips">
-                            <p>💡 Astuces :</p>
-                            <ul>
-                                <li>🎤 Artiste : "Ninho", "Daft Punk"</li>
-                                <li>🎵 Chanson : "Shape of You"</li>
-                                <li>📀 Playlist : "Top France", "Relax"</li>
-                            </ul>
-                        </div>
-                    </div>`;
-            }, 300);
-        }
-        
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
-        // Touche Entrée
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') searchSpotify();
-            });
-        }
-
         // QR Code
         function generateQRCode() {
-            // 🔴 REMPLACEZ CETTE URL PAR VOTRE LIEN DE PAIEMENT
-            const paymentUrl = "https://www.paypal.me/votrecompte";
+            const paymentUrl = "https://www.paypal.me/votrecompte"; // À MODIFIER
             const qrContainer = document.getElementById('qr-code');
             if (qrContainer && typeof QRCode !== 'undefined') {
                 qrContainer.innerHTML = '';
