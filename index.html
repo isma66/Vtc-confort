@@ -17,7 +17,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #121212;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             color: #fff;
             height: 100vh;
             display: flex;
@@ -27,45 +27,51 @@
             width: 100%;
         }
 
-        /* Tab Bar */
+        /* Barre d'onglets stylisée */
         .tab-bar {
             display: flex;
-            background: #000000;
-            border-bottom: 1px solid #282828;
-            padding: 8px 16px;
-            gap: 16px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            gap: 20px;
             flex-shrink: 0;
         }
 
         .tab-btn {
             flex: 1;
-            padding: 12px;
+            padding: 14px;
             background: transparent;
             border: none;
-            color: #b3b3b3;
-            font-size: 16px;
+            color: #888;
+            font-size: 17px;
             font-weight: 600;
-            border-radius: 12px;
-            transition: all 0.2s;
+            border-radius: 30px;
+            transition: all 0.3s ease;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .tab-btn.active {
-            background: #282828;
-            color: #1DB954;
+            background: linear-gradient(135deg, #1DB954 0%, #1aa34a 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
         }
 
-        /* Conteneur principal */
+        /* Contenu principal */
         .content {
             flex: 1;
             overflow: hidden;
-            background: #000000;
         }
 
         .tab-pane {
             display: none;
             height: 100%;
             width: 100%;
+            overflow-y: auto;
         }
 
         .tab-pane.active-pane {
@@ -74,50 +80,189 @@
 
         /* ========== STYLE SPOTIFY ========== */
         .spotify-container {
-            width: 100%;
             height: 100%;
-            background: #000000;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
         }
 
-        .spotify-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Petit message d'info en bas (dans la page Spotify uniquement) */
-        .spotify-info {
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
+        .spotify-header {
+            background: linear-gradient(135deg, #1DB95420 0%, #1aa34a10 100%);
+            padding: 24px 20px;
             text-align: center;
-            font-size: 10px;
-            color: #666;
-            background: rgba(0,0,0,0.7);
+            border-bottom: 1px solid rgba(29, 185, 84, 0.2);
+        }
+
+        .spotify-header h2 {
+            font-size: 28px;
+            background: linear-gradient(135deg, #1DB954, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .spotify-header p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .search-section {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
             padding: 4px;
-            pointer-events: none;
-            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 16px 20px;
+            border-radius: 50px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: #666;
+        }
+
+        .search-btn {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #1DB954, #1aa34a);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .search-btn:active {
+            transform: scale(0.96);
+        }
+
+        .results-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .result-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .result-query {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .spotify-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #1DB954, #1aa34a);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .spotify-link:active {
+            transform: scale(0.96);
+        }
+
+        .tips {
+            margin-top: 20px;
+            padding: 16px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+        }
+
+        .tips p {
+            color: #ffd966;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .tips ul {
+            color: #aaa;
+            font-size: 12px;
+            list-style: none;
+        }
+
+        .tips li {
+            margin: 6px 0;
         }
 
         /* ========== STYLE MENU ========== */
         .menu-container {
-            padding: 20px 16px;
-            overflow-y: auto;
-            height: 100%;
-            background: #121212;
+            padding: 20px;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+            min-height: 100%;
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffd96620, #ffb34710);
+            border-radius: 30px;
+        }
+
+        .menu-header h1 {
+            font-size: 32px;
+            background: linear-gradient(135deg, #ffd966, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .menu-header p {
+            color: #aaa;
+            margin-top: 8px;
         }
 
         .menu-section {
-            margin-bottom: 28px;
+            margin-bottom: 32px;
         }
 
         .menu-section h2 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 16px;
-            color: #ffd966;
-            border-left: 4px solid #ffd966;
-            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-section h2 span {
+            background: linear-gradient(135deg, #ffd966, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .menu-grid {
@@ -127,21 +272,23 @@
         }
 
         .menu-item {
-            background: #1e1e1e;
-            border-radius: 16px;
-            padding: 16px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            border-radius: 20px;
+            padding: 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .menu-item:active {
-            background: #2c2c2c;
+            transform: scale(0.98);
+            background: rgba(255,255,255,0.1);
         }
 
         .menu-item-info h3 {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: 600;
             margin-bottom: 4px;
         }
@@ -153,24 +300,28 @@
 
         .menu-item-price {
             font-weight: bold;
-            font-size: 18px;
-            color: #ffd966;
+            font-size: 20px;
+            background: linear-gradient(135deg, #ffd966, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .qr-container {
             background: white;
-            padding: 24px;
-            border-radius: 24px;
+            padding: 28px;
+            border-radius: 30px;
             text-align: center;
-            margin-top: 24px;
+            margin-top: 30px;
             margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .qr-container p {
             color: #000;
             margin-bottom: 16px;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .qr-code {
@@ -184,14 +335,9 @@
             text-align: center;
             font-size: 11px;
             color: #666;
-            padding: 16px;
-            border-top: 1px solid #2c2c2c;
-            margin-top: 8px;
-        }
-
-        canvas {
-            max-width: 100%;
-            height: auto;
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 16px;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs2-fix/dist/qrcode.min.js"></script>
@@ -199,86 +345,100 @@
 <body>
     <div class="tab-bar">
         <button class="tab-btn active" data-tab="music">🎵 SPOTIFY</button>
-        <button class="tab-btn" data-tab="menu">🍹 MENU & CONFORT</button>
+        <button class="tab-btn" data-tab="menu">🍽️ PAUSE GOURMANDE</button>
     </div>
 
     <div class="content">
-        <!-- Panneau Spotify - RECHERCHE LIBRE et LECTURE COMPLÈTE -->
+        <!-- ========== SPOTIFY - RECHERCHE INTÉGRÉE ========== -->
         <div id="music-pane" class="tab-pane active-pane">
             <div class="spotify-container">
-                <!-- 
-                    Spotify Web Player - permet la recherche libre, 
-                    la navigation complète, et ne quitte JAMAIS l'iframe
-                    Avec un compte Spotify Premium, lecture illimitée
-                -->
-                <iframe class="spotify-iframe" 
-                        src="https://open.spotify.com/"
-                        allow="encrypted-media; clipboard-write; autoplay; fullscreen; picture-in-picture"
-                        allowfullscreen>
-                </iframe>
+                <div class="spotify-header">
+                    <h2>🎧 Votre musique</h2>
+                    <p>Cherchez ce que vous voulez écouter</p>
+                </div>
+                
+                <div class="search-section">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Artiste, chanson, playlist... (ex: Daft Punk, Ninho, Relax)">
+                        <button class="search-btn" onclick="searchSpotify()">Chercher →</button>
+                    </div>
+                </div>
+                
+                <div id="resultsContainer" class="results-container">
+                    <div class="result-card">
+                        <div class="result-icon">🎵</div>
+                        <div class="result-query">Prêt à voyager ?</div>
+                        <div style="color: #888; margin-top: 8px;">Tapez un artiste ou une chanson</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Panneau Menu -->
+        <!-- ========== MENU - VOTRE MENU ORIGINAL ========== -->
         <div id="menu-pane" class="tab-pane">
             <div class="menu-container">
-                <!-- Boissons -->
+                <div class="menu-header">
+                    <h1>🍽️ PAUSE GOURMANDE</h1>
+                    <p>On a tout ce qu'il vous faut... sans bouger de la voiture</p>
+                </div>
+
+                <!-- BOISSONS -->
                 <div class="menu-section">
-                    <h2>💧 BOISSONS</h2>
+                    <h2>💧 <span>BOISSONS</span></h2>
                     <div class="menu-grid">
                         <div class="menu-item">
                             <div class="menu-item-info">
-                                <h3>Eau plate</h3>
-                                <p>50cl - Fraîche</p>
+                                <h3>Eau</h3>
+                                <p>Restez hydraté • Bouteille 50cl</p>
                             </div>
                             <div class="menu-item-price">2€</div>
                         </div>
                         <div class="menu-item">
                             <div class="menu-item-info">
-                                <h3>Eau gazeuse</h3>
-                                <p>50cl - Pétillante</p>
-                            </div>
-                            <div class="menu-item-price">2€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Jus d'orange</h3>
-                                <p>25cl - Pur jus</p>
-                            </div>
-                            <div class="menu-item-price">3€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Oasis Tropical</h3>
-                                <p>33cl - Fruité</p>
+                                <h3>Oasis</h3>
+                                <p>Fruité et désaltérant • 33cl</p>
                             </div>
                             <div class="menu-item-price">3€</div>
                         </div>
                         <div class="menu-item">
                             <div class="menu-item-info">
                                 <h3>Coca-Cola</h3>
-                                <p>33cl - Frais</p>
+                                <p>Fraîcheur intense • 33cl</p>
+                            </div>
+                            <div class="menu-item-price">3€</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Jus d'orange</h3>
+                                <p>Pur jus • 25cl</p>
                             </div>
                             <div class="menu-item-price">3€</div>
                         </div>
                         <div class="menu-item">
                             <div class="menu-item-info">
                                 <h3>Ice Tea</h3>
-                                <p>33cl - Pêche / Citron</p>
+                                <p>Pêche / Citron • 33cl</p>
                             </div>
                             <div class="menu-item-price">3€</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Confort & Snacks -->
+                <!-- CONFORT & ENERGIE -->
                 <div class="menu-section">
-                    <h2>🍪 CONFORT & GOURMANDISE</h2>
+                    <h2>⚡ <span>CONFORT & ENERGIE</span></h2>
                     <div class="menu-grid">
                         <div class="menu-item">
                             <div class="menu-item-info">
+                                <h3>Besoin d'énergie</h3>
+                                <p>Barre céréales • Fruits secs</p>
+                            </div>
+                            <div class="menu-item-price">2€</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
                                 <h3>Café</h3>
-                                <p>Expresso - Allongé</p>
+                                <p>Expresso • Allongé</p>
                             </div>
                             <div class="menu-item-price">2,50€</div>
                         </div>
@@ -288,13 +448,6 @@
                                 <p>Menthe, verveine, earl grey</p>
                             </div>
                             <div class="menu-item-price">2,50€</div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Barre céréales</h3>
-                                <p>Énergétique - Fruits secs</p>
-                            </div>
-                            <div class="menu-item-price">2€</div>
                         </div>
                         <div class="menu-item">
                             <div class="menu-item-info">
@@ -310,24 +463,17 @@
                             </div>
                             <div class="menu-item-price">1,50€</div>
                         </div>
-                        <div class="menu-item">
-                            <div class="menu-item-info">
-                                <h3>Charges USB</h3>
-                                <p>Lightning / USB-C</p>
-                            </div>
-                            <div class="menu-item-price">Gratuit</div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- QR Code Paiement -->
+                <!-- PAIEMENT -->
                 <div class="qr-container">
                     <p>💳 Paiement rapide & sans contact</p>
                     <div class="qr-code" id="qr-code"></div>
-                    <p style="font-size: 12px; margin-top: 12px; color: #333;">Scannez pour régler vos achats</p>
+                    <p style="font-size: 12px; margin-top: 12px; color: #555;">Scannez pour régler vos achats</p>
                 </div>
                 <div class="footer-note">
-                    🚗 À votre service | Paiement CB, Apple Pay, Google Pay
+                    🚗 À votre service | CB, Apple Pay, Google Pay
                 </div>
             </div>
         </div>
@@ -342,7 +488,6 @@
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 const targetTab = tab.getAttribute('data-tab');
-                
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 
@@ -356,15 +501,67 @@
             });
         });
 
-        // Générer QR Code
+        // Recherche Spotify
+        function searchSpotify() {
+            const query = document.getElementById('searchInput').value.trim();
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            if (query === '') {
+                resultsContainer.innerHTML = `
+                    <div class="result-card">
+                        <div class="result-icon">⚠️</div>
+                        <div class="result-query">Tapez un artiste ou une chanson</div>
+                    </div>`;
+                return;
+            }
+            
+            resultsContainer.innerHTML = `
+                <div class="result-card">
+                    <div class="result-icon">🔍</div>
+                    <div class="result-query">Recherche de "${escapeHtml(query)}"...</div>
+                </div>`;
+            
+            setTimeout(() => {
+                const searchUrl = `https://open.spotify.com/search/${encodeURIComponent(query)}`;
+                
+                resultsContainer.innerHTML = `
+                    <div class="result-card">
+                        <div class="result-icon">🎵</div>
+                        <div class="result-query">"${escapeHtml(query)}"</div>
+                        <a href="${searchUrl}" target="_blank" class="spotify-link">🎧 Écouter sur Spotify</a>
+                        <div class="tips">
+                            <p>💡 Astuces :</p>
+                            <ul>
+                                <li>🎤 Artiste : "Ninho", "Daft Punk"</li>
+                                <li>🎵 Chanson : "Shape of You"</li>
+                                <li>📀 Playlist : "Top France", "Relax"</li>
+                            </ul>
+                        </div>
+                    </div>`;
+            }, 300);
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Touche Entrée
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') searchSpotify();
+            });
+        }
+
+        // QR Code
         function generateQRCode() {
-            // REMPLACEZ CETTE URL PAR VOTRE VRAIE URL DE PAIEMENT
-            const paymentUrl = "https://link.stripe.com/paiement-vtc"; // À MODIFIER
-            
+            // 🔴 REMPLACEZ CETTE URL PAR VOTRE LIEN DE PAIEMENT
+            const paymentUrl = "https://www.paypal.me/votrecompte";
             const qrContainer = document.getElementById('qr-code');
-            qrContainer.innerHTML = '';
-            
-            if (typeof QRCode !== 'undefined') {
+            if (qrContainer && typeof QRCode !== 'undefined') {
+                qrContainer.innerHTML = '';
                 new QRCode(qrContainer, {
                     text: paymentUrl,
                     width: 160,
@@ -373,14 +570,10 @@
                     colorLight: "#ffffff",
                     correctLevel: QRCode.CorrectLevel.M
                 });
-            } else {
-                qrContainer.innerHTML = '<p style="color:#000;">QR Code: ' + paymentUrl + '</p>';
             }
         }
         
-        window.addEventListener('load', () => {
-            generateQRCode();
-        });
+        window.addEventListener('load', generateQRCode);
     </script>
 </body>
 </html>
